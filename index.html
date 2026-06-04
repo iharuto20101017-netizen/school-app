@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a">
+
+<title>学校管理アプリ Ultimate</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">SM</div>
+            <div class="logo-text">
+                <h1>学校管理アプリ</h1>
+                <span>Ultimate Edition</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active" data-page="home">ホーム</button>
+            <button class="nav-btn" data-page="schedule">時間割</button>
+            <button class="nav-btn" data-page="assignments">提出物</button>
+            <button class="nav-btn" data-page="tests">テスト</button>
+            <button class="nav-btn" data-page="grades">成績</button>
+            <button class="nav-btn" data-page="study">勉強</button>
+            <button class="nav-btn" data-page="items">持ち物</button>
+            <button class="nav-btn" data-page="settings">設定</button>
+
+        </nav>
+
+    </aside>
+
+    <main class="main-content">
+
+        <!-- HOME -->
+        <section id="home" class="page active">
+
+            <h2>ホーム</h2>
+
+            <div class="widget-grid">
+
+                <div class="widget glass">
+                    <h3>今日の時間割</h3>
+                    <div id="todaySchedule"></div>
+                </div>
+
+                <div class="widget glass">
+                    <h3>次の授業</h3>
+                    <div id="nextClass"></div>
+                </div>
+
+                <div class="widget glass">
+                    <h3>提出物優先</h3>
+                    <div id="assignmentRanking"></div>
+                </div>
+
+                <div class="widget glass">
+                    <h3>テストまで</h3>
+                    <div id="examCountdown"></div>
+                </div>
+
+                <div class="widget glass">
+                    <h3>GPA</h3>
+                    <div id="gpaDisplay"></div>
+                </div>
+
+                <div class="widget glass">
+                    <h3>AIアドバイス</h3>
+                    <div id="studyAdvice"></div>
+                </div>
+
+                <div class="widget glass">
+                    <h3>今日の持ち物</h3>
+                    <div id="todayItems"></div>
+                </div>
+
+                <div class="widget glass">
+                    <h3>明日の持ち物</h3>
+                    <div id="tomorrowItems"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- schedule -->
+        <section id="schedule" class="page">
+            <h2>時間割</h2>
+            <div class="glass section-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>時限</th>
+                            <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- assignments -->
+        <section id="assignments" class="page">
+            <h2>提出物</h2>
+
+            <div class="glass section-card">
+
+                <div class="input-row">
+                    <input id="assignmentTitle" placeholder="提出物">
+                    <input id="assignmentDeadline" type="date">
+                    <button id="addAssignment">追加</button>
+                </div>
+
+                <div id="assignmentList"></div>
+
+            </div>
+        </section>
+
+        <!-- tests -->
+        <section id="tests" class="page">
+            <h2>テスト</h2>
+
+            <div class="glass section-card">
+
+                <div class="input-row">
+                    <input id="testName" placeholder="教科">
+                    <input id="testDate" type="date">
+                    <input id="targetScore" type="number" placeholder="目標">
+                    <button id="addTest">追加</button>
+                </div>
+
+                <div id="testList"></div>
+
+            </div>
+        </section>
+
+        <!-- grades -->
+        <section id="grades" class="page">
+            <h2>成績</h2>
+
+            <div class="glass section-card">
+
+                <div id="gradeList"></div>
+
+                <div id="goalList"></div>
+
+            </div>
+        </section>
+
+        <!-- study -->
+        <section id="study" class="page">
+            <h2>勉強</h2>
+
+            <div class="glass section-card">
+
+                <input id="studyHours" type="number">
+                <button id="saveStudyHours">保存</button>
+
+                <div id="studySummary"></div>
+                <div id="studyHistory"></div>
+
+            </div>
+        </section>
+
+        <!-- items -->
+        <section id="items" class="page">
+            <h2>持ち物</h2>
+
+            <div class="glass section-card">
+
+                <select id="itemDay">
+                    <option value="Mon">月</option>
+                    <option value="Tue">火</option>
+                    <option value="Wed">水</option>
+                    <option value="Thu">木</option>
+                    <option value="Fri">金</option>
+                    <option value="Sat">土</option>
+                </select>
+
+                <input id="itemName">
+                <button id="addItem">追加</button>
+
+                <div id="itemList"></div>
+
+            </div>
+        </section>
+
+        <!-- settings -->
+        <section id="settings" class="page">
+            <h2>設定</h2>
+
+            <div class="glass section-card">
+
+                <button id="exportData">データ出力</button>
+
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
